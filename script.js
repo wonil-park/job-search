@@ -1,9 +1,15 @@
 const jobs = [];
 
 const addCard = (jobListing) => {
-  console.log(jobListing.type);
   const card = document.createElement("div");
-  card.setAttribute("class", "card");
+  let className = "card";
+  className = jobListing.type.toLowerCase().includes("full")
+    ? className.concat(" full")
+    : className.concat(" part");
+  className = jobListing.location.toLowerCase().includes("remote")
+    ? className.concat(" remote")
+    : className.concat("");
+  card.setAttribute("class", className);
   const logo = document.createElement("img");
   logo.setAttribute("class", "card-img-top");
   logo.src = jobListing["company_logo"];

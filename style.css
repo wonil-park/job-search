@@ -28,3 +28,18 @@ body {
   min-width: 200px;
   margin: 3rem;
 }
+
+.full,
+#full {
+  background: linear-gradient(135deg, #fff, rgb(162, 255, 144));
+}
+
+.remote,
+#remote {
+  background: linear-gradient(135deg, #fff, rgb(219, 192, 255));
+}
+
+.part,
+#part {
+  background: linear-gradient(135deg, #fff, rgb(253, 255, 148));
+}

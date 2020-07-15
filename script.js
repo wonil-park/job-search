@@ -1,3 +1,5 @@
+const jobs = [];
+
 const addCard = (jobListing) => {
   console.log(jobListing.type);
   const card = document.createElement("div");
@@ -40,25 +42,44 @@ const clickHandler = (e) => {
   document.querySelector("#board").innerHTML = "";
   let description = document.getElementById("desc");
   let location = document.getElementById("loc");
-  if (description.value === "" && location.value === "") {
-    alert("Please fill out at least one option!");
-  } else {
-    fetch(
-      `https://jobs.github.com/positions.json?description=${description.value}&location=${location.value}`
-    )
-      .then((response) => response.json())
-      .then((data) =>
-        data.forEach((job) => {
-          // Full Time => full time => full returns true
-          if (job.type.toLowerCase().includes(id)) {
+  if (id === "all") {
+    if (description.value === "" && location.value === "") {
+      alert("Please fill out at least one option!");
+    } else {
+      fetch(
+        `https://jobs.github.com/positions.json?description=${description.value}&location=${location.value}`
+      )
+        .then((response) => response.json())
+        .then((data) =>
+          data.forEach((job) => {
+            jobs.push(job);
             addCard(job);
-          }
-        })
-      );
-
-    description.value = "";
-    location.value = "";
+          })
+        );
+    }
   }
+
+  if (id === "full") {
+    jobs.forEach((job) => {
+      if (job.type.toLowerCase().includes(id)) {
+        addCard(job);
+      }
+    });
+  } else if (id === "part") {
+    jobs.forEach((job) => {
+      if (job.type.toLowerCase().includes("contract")) {
+        addCard(job);
+      }
+    });
+  } else if (id === "remote") {
+    jobs.forEach((job) => {
+      if (job.location.toLowerCase().includes(id)) {
+        addCard(job);
+      }
+    });
+  }
+  description.value = "";
+  location.value = "";
 };
 
 const searchBtns = Array.from(document.querySelectorAll(".search")).forEach(

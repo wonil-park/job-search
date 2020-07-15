@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="search-container form-group">
+      <form action="">
+        <label for="desc">Job Description: </label>
+        <input type="text" id="desc" placeholder="Enter job description" />
+        <label for="loc">Location: </label>
+        <input type="text" id="loc" placeholder="Enter location" />
+        <div class="button-container">
+          <button class="form-control search" id="full">Full Time</button>
+          <button class="form-control search" id="part">Part Time</button>
+          <button class="form-control search" id="remote">Remote</button>
+        </div>
+      </form>
+    </div>
+    <div id="board"></div>
+    <script src="./script.js"></script>
+  </body>
+</html>

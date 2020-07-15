@@ -1,0 +1,30 @@
+body {
+  margin: 15px;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-container button {
+  flex: 1 1 50%;
+  margin: 0 3rem;
+}
+
+#board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.card {
+  max-width: 20vw;
+  min-width: 200px;
+  margin: 3rem;
+}
